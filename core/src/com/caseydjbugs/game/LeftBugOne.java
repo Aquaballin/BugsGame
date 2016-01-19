@@ -10,7 +10,7 @@ import com.badlogic.gdx.math.Rectangle;
  */
 public class LeftBugOne extends Bug {
 
-    TextureAtlas atlas_LeftBugOne_run;
+    TextureAtlas atlas_LeftBugOne_run, atlas_LeftBugOne_fight;
     Animation run;
 
     LeftBugOne() {
