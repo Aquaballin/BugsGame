@@ -9,7 +9,9 @@ import com.badlogic.gdx.math.Rectangle;
  * Created by David on 1/18/2016.
  */
 public class RightBugOne extends Bug {
-    TextureAtlas atlas_RightBugOne_run;
+    TextureAtlas atlas_RightBugOne_run, atlas_RightBugOne_fight;
+
+
     Animation run;
 
     RightBugOne() {
