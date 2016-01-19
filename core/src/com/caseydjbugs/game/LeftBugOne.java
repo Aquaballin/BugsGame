@@ -11,12 +11,16 @@ import com.badlogic.gdx.math.Rectangle;
 public class LeftBugOne extends Bug {
 
     TextureAtlas atlas_LeftBugOne_run, atlas_LeftBugOne_fight;
-    Animation run;
+    Animation run,fight;
 
     LeftBugOne() {
         this.setX(50);
         this.setY(50);
         atlas_LeftBugOne_run = new TextureAtlas(Gdx.files.internal("LeftBugOne.atlas"));
+        atlas_LeftBugOne_fight = new TextureAtlas(Gdx.files.internal("LeftBugOne-Fight.atlas"));
+
+        fight = new Animation(1 / 15f, atlas_LeftBugOne_fight.getRegions());
+
         run = new Animation(1 / 15f, atlas_LeftBugOne_run.getRegions());
     }
 

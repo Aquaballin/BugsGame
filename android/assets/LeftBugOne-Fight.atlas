@@ -1,0 +1,96 @@
+
+LeftBugOne-Fight.png
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+Attack
+  rotate: false
+  xy: 1, 1
+  size: 600, 600
+  orig: 600, 600
+  offset: 0, 0
+  index: 0
+
+LeftBugOne-Fight2.png
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+Attack
+  rotate: false
+  xy: 1, 1
+  size: 600, 600
+  orig: 600, 600
+  offset: 0, 0
+  index: 1
+
+LeftBugOne-Fight3.png
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+Attack
+  rotate: false
+  xy: 1, 1
+  size: 600, 600
+  orig: 600, 600
+  offset: 0, 0
+  index: 2
+
+LeftBugOne-Fight4.png
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+Attack
+  rotate: false
+  xy: 1, 1
+  size: 600, 600
+  orig: 600, 600
+  offset: 0, 0
+  index: 3
+
+LeftBugOne-Fight5.png
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+Attack
+  rotate: false
+  xy: 1, 1
+  size: 600, 600
+  orig: 600, 600
+  offset: 0, 0
+  index: 4
+
+LeftBugOne-Fight6.png
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+Attack
+  rotate: false
+  xy: 1, 1
+  size: 600, 600
+  orig: 600, 600
+  offset: 0, 0
+  index: 5
+
+LeftBugOne-Fight7.png
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+Attack
+  rotate: false
+  xy: 1, 1
+  size: 600, 600
+  orig: 600, 600
+  offset: 0, 0
+  index: 6
+
+LeftBugOne-Fight8.png
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+Attack
+  rotate: false
+  xy: 1, 1
+  size: 600, 600
+  orig: 600, 600
+  offset: 0, 0
+  index: 7
