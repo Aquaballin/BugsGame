@@ -22,6 +22,7 @@ public class BugsGame extends ApplicationAdapter implements InputProcessor {
     RightBugOne startingRightBug;
     //left player starting bug
     LeftBugOne startingLeftBug;
+    Coin coin;
 
     //PHYSICS FOR COLLISION
     //create a world to start a physics engine, pass gravity as a parameter
@@ -42,6 +43,7 @@ public class BugsGame extends ApplicationAdapter implements InputProcessor {
         batch = new SpriteBatch();
         startingLeftBug = new LeftBugOne();
         startingRightBug = new RightBugOne();
+        coin = new Coin();
     }
 
     /**
@@ -64,8 +66,11 @@ public class BugsGame extends ApplicationAdapter implements InputProcessor {
 
         timePassed1 += Gdx.graphics.getDeltaTime();
 
-        startingLeftBug.bounds = new Rectangle(startingLeftBug.x + 1, 0, 400, 400);
-        startingRightBug.bounds = new Rectangle(startingRightBug.x + 1, 0, 400, 400);
+        batch.draw(coin.coinAnimation.getKeyFrame(timePassed1,true),50,1000);
+
+
+        startingLeftBug.bounds = new Rectangle(startingLeftBug.x + 1, 0, 500, 500);
+        startingRightBug.bounds = new Rectangle(startingRightBug.x + 1, 0, 500, 500);
         if (startingLeftBug.bounds.overlaps(startingRightBug.bounds)) {
 
             //stop and fight animation
