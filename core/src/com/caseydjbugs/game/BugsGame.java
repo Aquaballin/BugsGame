@@ -70,6 +70,7 @@ public class BugsGame extends ApplicationAdapter implements InputProcessor {
 
             //stop and fight animation
             batch.draw(startingRightBug.fight.getKeyFrame(timePassed1,true),startingRightBug.x,0);
+            batch.draw(startingLeftBug.fight.getKeyFrame(timePassed1,true),startingLeftBug.x,0);
             //fight()
         } else {
             batch.draw(startingLeftBug.run.getKeyFrame(timePassed1, true), startingLeftBug.x += 1, 0);
