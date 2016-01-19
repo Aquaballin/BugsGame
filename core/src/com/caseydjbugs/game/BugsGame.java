@@ -66,7 +66,8 @@ public class BugsGame extends ApplicationAdapter implements InputProcessor {
 
         timePassed1 += Gdx.graphics.getDeltaTime();
 
-        batch.draw(coin.coinAnimation.getKeyFrame(timePassed1,true),50,1000);
+        batch.draw(coin.coinAnimation.getKeyFrame(timePassed1,true),50,1100);
+        batch.draw(coin.coinAnimation.getKeyFrame(timePassed1,true),Gdx.graphics.getHeight()+600,1100);
 
 
         startingLeftBug.bounds = new Rectangle(startingLeftBug.x + 1, 0, 500, 500);

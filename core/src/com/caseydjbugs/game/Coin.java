@@ -12,7 +12,7 @@ public class Coin {
     Animation coinAnimation;
     Coin() {
         coinAtlas = new TextureAtlas(Gdx.files.internal("Coin-Atlas.atlas"));
-        coinAnimation = new Animation(1/7f,coinAtlas.getRegions());
+        coinAnimation = new Animation(1/5f,coinAtlas.getRegions());
     }
 
 }

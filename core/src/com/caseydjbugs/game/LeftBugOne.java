@@ -19,7 +19,7 @@ public class LeftBugOne extends Bug {
         atlas_LeftBugOne_run = new TextureAtlas(Gdx.files.internal("LeftBugOne.atlas"));
         atlas_LeftBugOne_fight = new TextureAtlas(Gdx.files.internal("LeftBugOne-Fight.atlas"));
 
-        fight = new Animation(1 / 15f, atlas_LeftBugOne_fight.getRegions());
+        fight = new Animation(1 / 10f, atlas_LeftBugOne_fight.getRegions());
 
         run = new Animation(1 / 15f, atlas_LeftBugOne_run.getRegions());
     }

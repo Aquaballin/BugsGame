@@ -18,6 +18,6 @@ public class RightBugOne extends Bug {
         atlas_RightBugOne_run = new TextureAtlas(Gdx.files.internal("RightBugOne.atlas"));
         atlas_RightBugOne_fight = new TextureAtlas(Gdx.files.internal("RightBugOne-Fight.atlas"));
         run = new Animation(1 / 15f, atlas_RightBugOne_run.getRegions());
-        fight = new Animation(1 / 15f, atlas_RightBugOne_fight.getRegions());
+        fight = new Animation(1 / 10f, atlas_RightBugOne_fight.getRegions());
     }
 }
