@@ -1,0 +1,39 @@
+package com.caseydjbugs.game;
+
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.graphics.g2d.Animation;
+import com.badlogic.gdx.graphics.g2d.TextureAtlas;
+import com.badlogic.gdx.math.Rectangle;
+
+/**
+ * Created by David on 1/18/2016.
+ */
+public class LeftBugOne extends Bug {
+
+    TextureAtlas atlas_LeftBugOne_run;
+    Animation run;
+
+    LeftBugOne() {
+        this.setX(50);
+        this.setY(50);
+        atlas_LeftBugOne_run = new TextureAtlas(Gdx.files.internal("LeftBugOne.atlas"));
+        run = new Animation(1 / 15f, atlas_LeftBugOne_run.getRegions());
+    }
+
+    public TextureAtlas getAtlas_LeftBugOne() {
+        return atlas_LeftBugOne_run;
+    }
+
+    public void setAtlas_LeftBugOne(TextureAtlas atlas_LeftBugOne) {
+        this.atlas_LeftBugOne_run = atlas_LeftBugOne;
+    }
+
+    public Animation getAnimation_LeftBugOne() {
+        return run;
+    }
+
+    public void setAnimation_LeftBugOne(Animation animation_LeftBugOne) {
+        this.run = animation_LeftBugOne;
+    }
+
+}

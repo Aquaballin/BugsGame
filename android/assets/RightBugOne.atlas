@@ -1,0 +1,81 @@
+
+RightBugOne.png
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+Run
+  rotate: false
+  xy: 1, 1
+  size: 600, 600
+  orig: 600, 600
+  offset: 0, 0
+  index: 0
+
+RightBugOne2.png
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+Run
+  rotate: false
+  xy: 1, 1
+  size: 600, 600
+  orig: 600, 600
+  offset: 0, 0
+  index: 1
+Run
+  rotate: false
+  xy: 1, 1
+  size: 600, 600
+  orig: 600, 600
+  offset: 0, 0
+  index: 7
+
+RightBugOne3.png
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+Run
+  rotate: false
+  xy: 1, 1
+  size: 600, 600
+  orig: 600, 600
+  offset: 0, 0
+  index: 2
+Run
+  rotate: false
+  xy: 1, 1
+  size: 600, 600
+  orig: 600, 600
+  offset: 0, 0
+  index: 6
+
+RightBugOne4.png
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+Run
+  rotate: false
+  xy: 1, 1
+  size: 600, 600
+  orig: 600, 600
+  offset: 0, 0
+  index: 3
+Run
+  rotate: false
+  xy: 1, 1
+  size: 600, 600
+  orig: 600, 600
+  offset: 0, 0
+  index: 5
+
+RightBugOne5.png
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+Run
+  rotate: false
+  xy: 1, 1
+  size: 600, 600
+  orig: 600, 600
+  offset: 0, 0
+  index: 4
