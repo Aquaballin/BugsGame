@@ -78,7 +78,6 @@ public class BugsGame extends ApplicationAdapter implements InputProcessor {
 
 
         if (startingLeftBug.bounds.overlaps(startingRightBug.bounds)) {
-
             //stop and fight animation
             batch.draw(startingRightBug.fight.getKeyFrame(timePassed1,true),startingRightBug.x,0);
             batch.draw(startingLeftBug.fight.getKeyFrame(timePassed1,true),startingLeftBug.x,0);
