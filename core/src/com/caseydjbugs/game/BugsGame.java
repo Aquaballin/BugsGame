@@ -72,11 +72,8 @@ public class BugsGame extends ApplicationAdapter implements InputProcessor {
         batch.draw(coin.coinAnimation.getKeyFrame(timePassed1,true),50,1100);
         batch.draw(coin.coinAnimation.getKeyFrame(timePassed1,true),Gdx.graphics.getHeight()+600,1100);
 
-
         startingLeftBug.bounds = new Rectangle(startingLeftBug.x + 1, 0, 500, 500);
         startingRightBug.bounds = new Rectangle(startingRightBug.x + 1, 0, 500, 500);
-
-
 
         if (startingLeftBug.bounds.overlaps(startingRightBug.bounds)) {
             //stop and fight animation
@@ -86,6 +83,8 @@ public class BugsGame extends ApplicationAdapter implements InputProcessor {
         } else {
             batch.draw(startingLeftBug.run.getKeyFrame(timePassed1, true), startingLeftBug.x += 1, 0);
             batch.draw(startingRightBug.run.getKeyFrame(timePassed1, true), startingRightBug.x -= 1, 0);
+            batch.draw(startingLeftBug.healthFull.getKeyFrame(timePassed1,true),startingLeftBug.x +=1, 0);
+
         }
 
         batch.end();

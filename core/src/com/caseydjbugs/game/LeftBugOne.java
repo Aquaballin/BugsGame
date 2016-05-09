@@ -12,7 +12,7 @@ public class LeftBugOne extends Bug {
 
     TextureAtlas atlas_LeftBugOne_run, atlas_LeftBugOne_fight, atlas_healthBar;
 
-    Animation run,fight;
+    Animation run,fight,healthFull,healthDecreasingByOnePerSecond;
 
     LeftBugOne() {
         this.setX(50);
@@ -23,22 +23,9 @@ public class LeftBugOne extends Bug {
         atlas_healthBar = new TextureAtlas(Gdx.files.internal("healthBar12.atlas"));
         fight = new Animation(1 / 10f, atlas_LeftBugOne_fight.getRegions());
         run = new Animation(1 / 15f, atlas_LeftBugOne_run.getRegions());
+        healthFull = new Animation(0f,atlas_healthBar.getRegions());
+        healthDecreasingByOnePerSecond = new Animation(1/70f);
     }
 
-    public TextureAtlas getAtlas_LeftBugOne() {
-        return atlas_LeftBugOne_run;
-    }
-
-    public void setAtlas_LeftBugOne(TextureAtlas atlas_LeftBugOne) {
-        this.atlas_LeftBugOne_run = atlas_LeftBugOne;
-    }
-
-    public Animation getAnimation_LeftBugOne() {
-        return run;
-    }
-
-    public void setAnimation_LeftBugOne(Animation animation_LeftBugOne) {
-        this.run = animation_LeftBugOne;
-    }
 
 }
