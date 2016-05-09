@@ -20,7 +20,7 @@ public class LeftBugOne extends Bug {
         atlas_LeftBugOne_run = new TextureAtlas(Gdx.files.internal("LeftBugOne.atlas"));
         atlas_LeftBugOne_fight = new TextureAtlas(Gdx.files.internal("LeftBugOne-Fight.atlas"));
         //added health bars 5/9/2016
-        atlas_healthBar = new TextureAtlas(Gdx.files.internal("healthBar12.atlas"));
+        atlas_healthBar = new TextureAtlas(Gdx.files.internal("fullHealthTryTwo.atlas"));
         fight = new Animation(1 / 10f, atlas_LeftBugOne_fight.getRegions());
         run = new Animation(1 / 15f, atlas_LeftBugOne_run.getRegions());
         healthFull = new Animation(0f,atlas_healthBar.getRegions());

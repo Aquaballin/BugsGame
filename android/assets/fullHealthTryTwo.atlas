@@ -1,5 +1,5 @@
 
-healthBar12.png
+fullHealthTryTwo.png
 format: RGBA8888
 filter: Nearest,Nearest
 repeat: none
@@ -9,81 +9,81 @@ repeat: none
   size: 600, 50
   orig: 600, 50
   offset: 0, 0
-  index: -1
+  index: 2
 11health
   rotate: false
   xy: 1, 521
   size: 600, 50
   orig: 600, 50
   offset: 0, 0
-  index: -1
+  index: 1
 12health
   rotate: false
   xy: 1, 469
   size: 600, 50
   orig: 600, 50
   offset: 0, 0
-  index: -1
+  index: 0
 1health
   rotate: false
   xy: 1, 417
   size: 600, 50
   orig: 600, 50
   offset: 0, 0
-  index: -1
+  index: 11
 2health
   rotate: false
   xy: 1, 365
   size: 600, 50
   orig: 600, 50
   offset: 0, 0
-  index: -1
+  index: 10
 3health
   rotate: false
   xy: 1, 313
   size: 600, 50
   orig: 600, 50
   offset: 0, 0
-  index: -1
+  index: 9
 4health
   rotate: false
   xy: 1, 261
   size: 600, 50
   orig: 600, 50
   offset: 0, 0
-  index: -1
+  index: 8
 5health
   rotate: false
   xy: 1, 209
   size: 600, 50
   orig: 600, 50
   offset: 0, 0
-  index: -1
+  index: 7
 6health
   rotate: false
   xy: 1, 157
   size: 600, 50
   orig: 600, 50
   offset: 0, 0
-  index: -1
+  index: 6
 7health
   rotate: false
   xy: 1, 105
   size: 600, 50
   orig: 600, 50
   offset: 0, 0
-  index: -1
+  index: 5
 8health
   rotate: false
   xy: 1, 53
   size: 600, 50
   orig: 600, 50
   offset: 0, 0
-  index: -1
+  index: 4
 9health
   rotate: false
   xy: 1, 1
   size: 600, 50
   orig: 600, 50
   offset: 0, 0
-  index: -1
+  index: 3

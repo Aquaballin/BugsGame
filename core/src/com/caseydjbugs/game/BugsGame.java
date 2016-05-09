@@ -83,7 +83,8 @@ public class BugsGame extends ApplicationAdapter implements InputProcessor {
         } else {
             batch.draw(startingLeftBug.run.getKeyFrame(timePassed1, true), startingLeftBug.x += 1, 0);
             batch.draw(startingRightBug.run.getKeyFrame(timePassed1, true), startingRightBug.x -= 1, 0);
-            batch.draw(startingLeftBug.healthFull.getKeyFrame(timePassed1,true),startingLeftBug.x +=1, 0);
+
+            batch.draw(startingLeftBug.healthFull.getKeyFrame(timePassed1,true),startingLeftBug.x +=1, 700);
 
         }
 
