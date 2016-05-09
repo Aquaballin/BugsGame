@@ -78,6 +78,7 @@ public class BugsGame extends ApplicationAdapter implements InputProcessor {
 
         //eventually there will need to be some sort of fighting que data structure
         //next thing to add is the buttons that increase defense, attack, or health
+        //also you need to somehow use the raw files rather than the goddamn white background files.... can probably leave this till the end i guess???
 
 
 
