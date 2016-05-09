@@ -61,33 +61,30 @@ public class BugsGame extends ApplicationAdapter implements InputProcessor {
     //draws everything, infinite loop
     @Override
     public void render() {
-
         Gdx.gl.glClearColor(1, 1, 1, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
-
         batch.begin();
-
         timePassed1 += Gdx.graphics.getDeltaTime();
-
         batch.draw(coin.coinAnimation.getKeyFrame(timePassed1,true),50,1100);
         batch.draw(coin.coinAnimation.getKeyFrame(timePassed1,true),Gdx.graphics.getHeight()+600,1100);
-
         startingLeftBug.bounds = new Rectangle(startingLeftBug.x + 1, 0, 500, 500);
         startingRightBug.bounds = new Rectangle(startingRightBug.x + 1, 0, 500, 500);
 
+        //this is where the drawing starts
         if (startingLeftBug.bounds.overlaps(startingRightBug.bounds)) {
             //stop and fight animation
             batch.draw(startingRightBug.fight.getKeyFrame(timePassed1,true),startingRightBug.x,0);
             batch.draw(startingLeftBug.fight.getKeyFrame(timePassed1,true),startingLeftBug.x,0);
+            batch.draw(startingRightBug.healthDecreasingByOnePerSecond.getKeyFrame(timePassed1,false),startingRightBug.x,700);
             //fight()
         } else {
             batch.draw(startingLeftBug.run.getKeyFrame(timePassed1, true), startingLeftBug.x += 1, 0);
             batch.draw(startingRightBug.run.getKeyFrame(timePassed1, true), startingRightBug.x -= 1, 0);
-
-            batch.draw(startingLeftBug.healthFull.getKeyFrame(timePassed1,true),startingLeftBug.x +=1, 700);
+            batch.draw(startingLeftBug.healthFull.getKeyFrame(0,true),startingLeftBug.x +=1, 700);
+            batch.draw(startingRightBug.healthFull.getKeyFrame(0,true),startingRightBug.x -=1, 700);
+            //
 
         }
-
         batch.end();
     }
 
