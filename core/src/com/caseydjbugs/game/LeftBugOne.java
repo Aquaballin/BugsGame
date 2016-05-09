@@ -24,7 +24,7 @@ public class LeftBugOne extends Bug {
         fight = new Animation(1 / 10f, atlas_LeftBugOne_fight.getRegions());
         run = new Animation(1 / 15f, atlas_LeftBugOne_run.getRegions());
         healthFull = new Animation(0f,atlas_healthBar.getRegions());
-        healthDecreasingByOnePerSecond = new Animation(1/70f);
+        healthDecreasingByOnePerSecond = new Animation(1f,atlas_healthBar.getRegions());
     }
 
 

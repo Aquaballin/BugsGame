@@ -71,11 +71,24 @@ public class BugsGame extends ApplicationAdapter implements InputProcessor {
         startingRightBug.bounds = new Rectangle(startingRightBug.x + 1, 0, 500, 500);
 
         //this is where the drawing starts
+
+
+
+
+
+        //eventually there will need to be some sort of fighting que data structure
+        //next thing to add is the buttons that increase defense, attack, or health
+
+
+
+
+
         if (startingLeftBug.bounds.overlaps(startingRightBug.bounds)) {
             //stop and fight animation
             batch.draw(startingRightBug.fight.getKeyFrame(timePassed1,true),startingRightBug.x,0);
             batch.draw(startingLeftBug.fight.getKeyFrame(timePassed1,true),startingLeftBug.x,0);
             batch.draw(startingRightBug.healthDecreasingByOnePerSecond.getKeyFrame(timePassed1,false),startingRightBug.x,700);
+            batch.draw(startingRightBug.healthDecreasingByOnePerSecond.getKeyFrame(timePassed1,false),startingLeftBug.x,700);
             //fight()
         } else {
             batch.draw(startingLeftBug.run.getKeyFrame(timePassed1, true), startingLeftBug.x += 1, 0);
