@@ -68,7 +68,7 @@ public abstract class Bug extends Actor {
     int attackDamage = 1;
     int speed = 1;
     int armor = 1;
-    double health = 1;
+    double health = 12;
     float x;
     float y;
 
