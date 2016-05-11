@@ -3,19 +3,46 @@ package com.caseydjbugs.game;
 import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.InputProcessor;
+import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
+import com.badlogic.gdx.maps.MapObject;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.BodyDef;
+import com.badlogic.gdx.physics.box2d.Box2DDebugRenderer;
+import com.badlogic.gdx.physics.box2d.FixtureDef;
+import com.badlogic.gdx.physics.box2d.PolygonShape;
 import com.badlogic.gdx.physics.box2d.World;
 
+
+import java.awt.Polygon;
 import java.util.List;
 
 public class BugsGame extends ApplicationAdapter implements InputProcessor {
+
+
+    //right now all you have is actors and batches rendering shit, you dont have an actual background process for math involved
+
+
+    World world = new World(new Vector2(0,0),true);// (0,0) is grav weight
+    Box2DDebugRenderer debugRenderer = new Box2DDebugRenderer();
+    BodyDef bodyDef = new BodyDef();
+    PolygonShape shape = new PolygonShape();
+    FixtureDef fixtureDef = new FixtureDef();
+    MapObject mapObject = new MapObject();
+
+
+    //use this to add music
+    AssetManager assetManager;
+    //manager.load("audio/music/music.ogg",Music.class)
+
+
+
+
     //draws batched quad using indices
     SpriteBatch batch;
     //timePassed for how long it takes to draw frames
@@ -26,14 +53,7 @@ public class BugsGame extends ApplicationAdapter implements InputProcessor {
     LeftBugOne startingLeftBug;
     Coin coin;
 
-    //PHYSICS FOR COLLISION
-    //create a world to start a physics engine, pass gravity as a parameter
-    World bugBeach = new World(new Vector2(0, -98f), true);
-    //now create a body definition, this defines the physics objects type and position in the simulation
-    BodyDef bodyDef = new BodyDef(); // go to this link to continue figureing out how to use the body def.
-    /**
-     * http://www.gamefromscratch.com/post/2014/08/27/LibGDX-Tutorial-13-Physics-with-Box2D-Part-1-A-Basic-Physics-Simulations.aspx
-     */
+
 
 
     /**
