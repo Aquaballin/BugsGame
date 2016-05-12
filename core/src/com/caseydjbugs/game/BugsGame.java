@@ -1,6 +1,7 @@
 package com.caseydjbugs.game;
 
 import com.badlogic.gdx.ApplicationAdapter;
+import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.InputProcessor;
 import com.badlogic.gdx.assets.AssetManager;
@@ -20,54 +21,42 @@ import com.badlogic.gdx.physics.box2d.Box2DDebugRenderer;
 import com.badlogic.gdx.physics.box2d.FixtureDef;
 import com.badlogic.gdx.physics.box2d.PolygonShape;
 import com.badlogic.gdx.physics.box2d.World;
+import com.caseydjbugs.game.Screens.BattleScreen;
 
 
 import java.awt.Polygon;
 import java.util.List;
 
-public class BugsGame extends ApplicationAdapter implements InputProcessor {
+public class BugsGame extends Game implements InputProcessor {
 
-    //the sprite values need to represent the batch drawing
-
-
-
+    public static final int width = 400;
+    public static final int height = 208;
 
 
-    SpriteBatch batch;
+    //make only one spritebatch because its memory intensive
+    public SpriteBatch batch;
     private float timePassed1 = 0;
+
 
 
 
     @Override
     public void create() {
-        Gdx.input.setInputProcessor(this);
-
-
-
-
-
-
-
-
+        batch = new SpriteBatch();
+        //made package for Screens, can set different screens in BugsGame class
+        setScreen(new BattleScreen(this));
     }
 
 
     @Override
     public void dispose() {
-
-
         batch.dispose();
     }
 
 
     @Override
     public void render() {
-        Gdx.gl.glClearColor(1, 1, 1, 1);
-        Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
-        batch.begin();
-        timePassed1 += Gdx.graphics.getDeltaTime();
-
-        batch.end();
+        super.render();
     }
 
 
