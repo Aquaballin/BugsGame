@@ -18,8 +18,6 @@ public class Hud {
 
     public Stage stage;
     private Viewport viewport;
-    private Integer leftMoney;
-    private Integer rightMoney;
     private Integer leftArmorLevel;
     private Integer leftHealthLevel;
     private Integer leftAttackLevel;
@@ -39,16 +37,25 @@ public class Hud {
     Label leftHealthLabel;
     Label rightHealthLabel;
 
+    Label leftMoneyLabel2;
+    Label rightMoneyLabel2;
+    Label leftArmorLabel2;
+    Label rightArmorLabel2;
+    Label leftAttackLabel2;
+    Label rightAttackLabel2;
+    Label leftHealthLabel2;
+    Label rightHealthLabel2;
+
     public Hud(SpriteBatch spriteBatch){
 
-        leftMoney = 0;
+
         leftMoneyCount = 0;
         leftArmorLevel = 0;
         leftAttackLevel = 0;
         leftHealthLevel = 0;
         moneyCap = 300;
 
-        rightMoney = 0;
+
         rightMoneyCount = 0;
         rightArmorLevel = 0;
         rightAttackLevel = 0;
@@ -73,6 +80,16 @@ public class Hud {
         rightAttackLabel = new Label(String.format("%d",rightAttackLevel),new Label.LabelStyle(new BitmapFont(),Color.WHITE));
         rightHealthLabel = new Label(String.format("%d",rightHealthLevel),new Label.LabelStyle(new BitmapFont(),Color.WHITE));
 
+        leftMoneyLabel2 = new Label("Money",new Label.LabelStyle(new BitmapFont(), Color.WHITE));
+        leftArmorLabel2 = new Label("Armor",new Label.LabelStyle(new BitmapFont(),Color.WHITE));
+        leftAttackLabel2 = new Label("Attack",new Label.LabelStyle(new BitmapFont(),Color.WHITE));
+        leftHealthLabel2 = new Label("Health",new Label.LabelStyle(new BitmapFont(),Color.WHITE));
+
+        rightMoneyLabel2 = new Label("Money",new Label.LabelStyle(new BitmapFont(), Color.WHITE));
+        rightArmorLabel2 = new Label("Armor",new Label.LabelStyle(new BitmapFont(),Color.WHITE));
+        rightAttackLabel2 = new Label("Attack",new Label.LabelStyle(new BitmapFont(),Color.WHITE));
+        rightHealthLabel2 = new Label("Health",new Label.LabelStyle(new BitmapFont(),Color.WHITE));
+
         table.add(leftMoneyLabel).expandX().padTop(10);
         table.add(leftArmorLabel).expandX().padTop(10);
         table.add(leftAttackLabel).expandX().padTop(10);
@@ -81,6 +98,16 @@ public class Hud {
         table.add(rightArmorLabel).expandX().padTop(10);
         table.add(rightAttackLabel).expandX().padTop(10);
         table.add(rightHealthLabel).expandX().padTop(10);
+        table.row();
+        table.add(leftMoneyLabel2).expandX().padTop(10);
+        table.add(leftArmorLabel2).expandX().padTop(10);
+        table.add(leftAttackLabel2).expandX().padTop(10);
+        table.add(leftHealthLabel2).expandX().padTop(10);
+        table.add(rightMoneyLabel2).expandX().padTop(10);
+        table.add(rightArmorLabel2).expandX().padTop(10);
+        table.add(rightAttackLabel2).expandX().padTop(10);
+        table.add(rightHealthLabel2).expandX().padTop(10);
+
 
 
     }
