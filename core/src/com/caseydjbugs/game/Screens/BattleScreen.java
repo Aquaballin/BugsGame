@@ -12,8 +12,7 @@ import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.StretchViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 import com.caseydjbugs.game.BugsGame;
-
-
+import com.caseydjbugs.game.Scenes.Hud;
 
 
 /**
@@ -25,6 +24,7 @@ public class BattleScreen implements Screen {
     public SpriteBatch batch;
     private OrthographicCamera gameCamera;
     private Viewport viewport;
+    private Hud hud;
 
 
     public BattleScreen(BugsGame game) {
@@ -33,6 +33,8 @@ public class BattleScreen implements Screen {
         gameCamera = new OrthographicCamera();
         //different types of viewports change how you look at game
         viewport = new FitViewport(BugsGame.width,BugsGame.height,gameCamera);
+        hud = new Hud(game.batch);
+
     }
 
     @Override
@@ -45,7 +47,10 @@ public class BattleScreen implements Screen {
         Gdx.gl.glClearColor(1, 0, 0, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
         //opens the box
-        game.batch.setProjectionMatrix(gameCamera.combined);
+        game.batch.setProjectionMatrix(hud.stage.getCamera().combined);
+        hud.stage.draw();
+
+
         game.batch.begin();
         game.batch.draw(texture, 0, 0);
         //close box
