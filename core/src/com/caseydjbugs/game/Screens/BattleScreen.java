@@ -20,8 +20,7 @@ import com.caseydjbugs.game.Scenes.Hud;
  */
 public class BattleScreen implements Screen {
   private BugsGame game;
-    public Texture texture;
-    public SpriteBatch batch;
+
     private OrthographicCamera gameCamera;
     private Viewport viewport;
     private Hud hud;
@@ -29,7 +28,7 @@ public class BattleScreen implements Screen {
 
     public BattleScreen(BugsGame game) {
         this.game = game;
-        texture = new Texture("badlogic.jpg");
+
         gameCamera = new OrthographicCamera();
         //different types of viewports change how you look at game
         viewport = new FitViewport(BugsGame.width,BugsGame.height,gameCamera);
@@ -44,21 +43,10 @@ public class BattleScreen implements Screen {
 
     @Override
     public void render(float delta) {
-        Gdx.gl.glClearColor(1, 0, 0, 1);
+        Gdx.gl.glClearColor(0, 0, 0, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
-        //opens the box
         game.batch.setProjectionMatrix(hud.stage.getCamera().combined);
         hud.stage.draw();
-
-
-        game.batch.begin();
-        game.batch.draw(texture, 0, 0);
-        //close box
-        game.batch.end();
-
-
-
-
     }
     /*
     User this to auto adjust screen

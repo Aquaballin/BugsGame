@@ -18,6 +18,7 @@ public class Hud {
 
     public Stage stage;
     private Viewport viewport;
+
     private Integer leftArmorLevel;
     private Integer leftHealthLevel;
     private Integer leftAttackLevel;
@@ -36,7 +37,6 @@ public class Hud {
     Label rightAttackLabel;
     Label leftHealthLabel;
     Label rightHealthLabel;
-
     Label leftMoneyLabel2;
     Label rightMoneyLabel2;
     Label leftArmorLabel2;
@@ -70,15 +70,15 @@ public class Hud {
         //table is size of the stage.
         table.setFillParent(true);
 
-        leftMoneyLabel = new Label(String.format("%d",leftMoneyCount),new Label.LabelStyle(new BitmapFont(), Color.WHITE));
-        leftArmorLabel = new Label(String.format("%d",leftArmorLevel),new Label.LabelStyle(new BitmapFont(),Color.WHITE));
-        leftAttackLabel = new Label(String.format("%d",leftAttackLevel),new Label.LabelStyle(new BitmapFont(),Color.WHITE));
-        leftHealthLabel = new Label(String.format("%d",leftHealthLevel),new Label.LabelStyle(new BitmapFont(),Color.WHITE));
+        leftMoneyLabel = new Label(String.format("%.2f",leftMoneyCount),new Label.LabelStyle(new BitmapFont(), Color.YELLOW));
+        leftArmorLabel = new Label(String.format("%d",leftArmorLevel),new Label.LabelStyle(new BitmapFont(),Color.BLUE));
+        leftAttackLabel = new Label(String.format("%d",leftAttackLevel),new Label.LabelStyle(new BitmapFont(),Color.BLUE));
+        leftHealthLabel = new Label(String.format("%d",leftHealthLevel),new Label.LabelStyle(new BitmapFont(),Color.BLUE));
 
-        rightMoneyLabel = new Label(String.format("%d",rightMoneyCount),new Label.LabelStyle(new BitmapFont(), Color.WHITE));
-        rightArmorLabel = new Label(String.format("%d",rightArmorLevel),new Label.LabelStyle(new BitmapFont(),Color.WHITE));
-        rightAttackLabel = new Label(String.format("%d",rightAttackLevel),new Label.LabelStyle(new BitmapFont(),Color.WHITE));
-        rightHealthLabel = new Label(String.format("%d",rightHealthLevel),new Label.LabelStyle(new BitmapFont(),Color.WHITE));
+        rightMoneyLabel = new Label(String.format("%.2f",rightMoneyCount),new Label.LabelStyle(new BitmapFont(), Color.YELLOW));
+        rightArmorLabel = new Label(String.format("%d",rightArmorLevel),new Label.LabelStyle(new BitmapFont(),Color.RED));
+        rightAttackLabel = new Label(String.format("%d",rightAttackLevel),new Label.LabelStyle(new BitmapFont(),Color.RED));
+        rightHealthLabel = new Label(String.format("%d",rightHealthLevel),new Label.LabelStyle(new BitmapFont(),Color.RED));
 
         leftMoneyLabel2 = new Label("Money",new Label.LabelStyle(new BitmapFont(), Color.WHITE));
         leftArmorLabel2 = new Label("Armor",new Label.LabelStyle(new BitmapFont(),Color.WHITE));
@@ -90,14 +90,7 @@ public class Hud {
         rightAttackLabel2 = new Label("Attack",new Label.LabelStyle(new BitmapFont(),Color.WHITE));
         rightHealthLabel2 = new Label("Health",new Label.LabelStyle(new BitmapFont(),Color.WHITE));
 
-        table.add(leftMoneyLabel).expandX().padTop(10);
-        table.add(leftArmorLabel).expandX().padTop(10);
-        table.add(leftAttackLabel).expandX().padTop(10);
-        table.add(leftHealthLabel).expandX().padTop(10);
-        table.add(rightMoneyLabel).expandX().padTop(10);
-        table.add(rightArmorLabel).expandX().padTop(10);
-        table.add(rightAttackLabel).expandX().padTop(10);
-        table.add(rightHealthLabel).expandX().padTop(10);
+
         table.row();
         table.add(leftMoneyLabel2).expandX().padTop(10);
         table.add(leftArmorLabel2).expandX().padTop(10);
@@ -107,8 +100,16 @@ public class Hud {
         table.add(rightArmorLabel2).expandX().padTop(10);
         table.add(rightAttackLabel2).expandX().padTop(10);
         table.add(rightHealthLabel2).expandX().padTop(10);
-
-
+        table.row();
+        table.add(leftMoneyLabel).expandX().padTop(10);
+        table.add(leftArmorLabel).expandX().padTop(10);
+        table.add(leftAttackLabel).expandX().padTop(10);
+        table.add(leftHealthLabel).expandX().padTop(10);
+        table.add(rightMoneyLabel).expandX().padTop(10);
+        table.add(rightArmorLabel).expandX().padTop(10);
+        table.add(rightAttackLabel).expandX().padTop(10);
+        table.add(rightHealthLabel).expandX().padTop(10);
+        stage.addActor(table);
 
     }
 }
