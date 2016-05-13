@@ -41,8 +41,16 @@ public class BattleScreen implements Screen {
 
     }
 
+     public void handleInput(float dt) {
+         //if(Gdx.input.isTouched());
+
+     }
+    public void update(float dt) {
+        handleInput(dt);
+    }
     @Override
     public void render(float delta) {
+        update(delta);
         Gdx.gl.glClearColor(0, 0, 0, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
         game.batch.setProjectionMatrix(hud.stage.getCamera().combined);
