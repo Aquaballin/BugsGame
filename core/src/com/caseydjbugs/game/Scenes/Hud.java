@@ -96,19 +96,19 @@ public class Hud {
         table.add(leftArmorLabel2).expandX().padTop(10);
         table.add(leftAttackLabel2).expandX().padTop(10);
         table.add(leftHealthLabel2).expandX().padTop(10);
-        table.add(rightMoneyLabel2).expandX().padTop(10);
-        table.add(rightArmorLabel2).expandX().padTop(10);
-        table.add(rightAttackLabel2).expandX().padTop(10);
         table.add(rightHealthLabel2).expandX().padTop(10);
+        table.add(rightAttackLabel2).expandX().padTop(10);
+        table.add(rightArmorLabel2).expandX().padTop(10);
+        table.add(rightMoneyLabel2).expandX().padTop(10);
         table.row();
         table.add(leftMoneyLabel).expandX().padTop(10);
         table.add(leftArmorLabel).expandX().padTop(10);
         table.add(leftAttackLabel).expandX().padTop(10);
         table.add(leftHealthLabel).expandX().padTop(10);
-        table.add(rightMoneyLabel).expandX().padTop(10);
-        table.add(rightArmorLabel).expandX().padTop(10);
-        table.add(rightAttackLabel).expandX().padTop(10);
         table.add(rightHealthLabel).expandX().padTop(10);
+        table.add(rightAttackLabel).expandX().padTop(10);
+        table.add(rightArmorLabel).expandX().padTop(10);
+        table.add(rightMoneyLabel).expandX().padTop(10);
         stage.addActor(table);
 
     }
