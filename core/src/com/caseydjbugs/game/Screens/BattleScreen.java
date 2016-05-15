@@ -47,6 +47,8 @@ public class BattleScreen implements Screen {
      }
     public void update(float dt) {
         handleInput(dt);
+
+        
     }
     @Override
     public void render(float delta) {
