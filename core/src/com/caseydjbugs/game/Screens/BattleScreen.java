@@ -8,6 +8,11 @@ import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.math.Vector2;
+import com.badlogic.gdx.physics.box2d.BodyDef;
+import com.badlogic.gdx.physics.box2d.Box2DDebugRenderer;
+import com.badlogic.gdx.physics.box2d.PolygonShape;
+import com.badlogic.gdx.physics.box2d.World;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.StretchViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
@@ -19,11 +24,14 @@ import com.caseydjbugs.game.Scenes.Hud;
  * Created by David on 5/12/2016.
  */
 public class BattleScreen implements Screen {
-  private BugsGame game;
-
+    private BugsGame game;
     private OrthographicCamera gameCamera;
     private Viewport viewport;
     private Hud hud;
+
+    //Box2d variables
+    private World world;
+    private Box2DDebugRenderer debugRenderer;
 
 
     public BattleScreen(BugsGame game) {
@@ -33,6 +41,14 @@ public class BattleScreen implements Screen {
         //different types of viewports change how you look at game
         viewport = new FitViewport(BugsGame.width,BugsGame.height,gameCamera);
         hud = new Hud(game.batch);
+
+        //param for word is gravity physics
+        world = new World(new Vector2(0,0),true);
+        debugRenderer = new Box2DDebugRenderer();
+        BodyDef bodyDef = new BodyDef();
+        PolygonShape shape = new PolygonShape();
+
+
 
     }
 
