@@ -22,6 +22,7 @@ import com.badlogic.gdx.utils.viewport.StretchViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 import com.caseydjbugs.game.BugsGame;
 import com.caseydjbugs.game.Scenes.Hud;
+import com.caseydjbugs.game.Sprites.LeftBug;
 
 
 /**
@@ -36,6 +37,7 @@ public class BattleScreen implements Screen {
     //Box2d variables
     private World world;
     private Box2DDebugRenderer debugRenderer;
+    LeftBug leftBug;
 
 
     public BattleScreen(BugsGame game) {
@@ -53,6 +55,9 @@ public class BattleScreen implements Screen {
         PolygonShape shape = new PolygonShape();
         FixtureDef fixtureDef = new FixtureDef();
         Body body;
+        leftBug =   new LeftBug(world);
+        world = new World(new Vector2(0,10),true);
+
 
 
 
@@ -71,7 +76,7 @@ public class BattleScreen implements Screen {
      }
     public void update(float dt) {
         handleInput(dt);
-        world.step(1/60f,6,2);
+        world.step(1 / 60f, 6, 2);
         gameCamera.update();
 
     }
