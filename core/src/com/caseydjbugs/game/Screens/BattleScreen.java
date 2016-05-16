@@ -72,6 +72,8 @@ public class BattleScreen implements Screen {
     public void update(float dt) {
         handleInput(dt);
         world.step(1/60f,6,2);
+        gameCamera.update();
+
     }
     @Override
     public void render(float delta) {
