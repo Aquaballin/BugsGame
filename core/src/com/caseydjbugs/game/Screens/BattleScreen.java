@@ -8,9 +8,13 @@ import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.maps.MapObject;
 import com.badlogic.gdx.math.Vector2;
+import com.badlogic.gdx.physics.box2d.Body;
 import com.badlogic.gdx.physics.box2d.BodyDef;
 import com.badlogic.gdx.physics.box2d.Box2DDebugRenderer;
+import com.badlogic.gdx.physics.box2d.Fixture;
+import com.badlogic.gdx.physics.box2d.FixtureDef;
 import com.badlogic.gdx.physics.box2d.PolygonShape;
 import com.badlogic.gdx.physics.box2d.World;
 import com.badlogic.gdx.utils.viewport.FitViewport;
@@ -47,6 +51,10 @@ public class BattleScreen implements Screen {
         debugRenderer = new Box2DDebugRenderer();
         BodyDef bodyDef = new BodyDef();
         PolygonShape shape = new PolygonShape();
+        FixtureDef fixtureDef = new FixtureDef();
+        Body body;
+
+
 
 
 
@@ -63,8 +71,7 @@ public class BattleScreen implements Screen {
      }
     public void update(float dt) {
         handleInput(dt);
-
-        
+        world.step(1/60f,6,2);
     }
     @Override
     public void render(float delta) {
