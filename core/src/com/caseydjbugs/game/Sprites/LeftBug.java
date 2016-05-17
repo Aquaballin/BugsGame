@@ -19,16 +19,14 @@ public class LeftBug  extends Sprite {
     public World world;
     public Body body;
     Texture texture;
-
     public LeftBug(World world){
         this.world = world;
         defineLeftBug();
     }
-
     private void defineLeftBug() {
-        texture = new Texture(Gdx.files.internal("assets/LeftBugOne2.png"));
+        //texture = new Texture(Gdx.files.internal("assets/LeftBugOne2.png"));
         BodyDef bodyDef = new BodyDef();
-        bodyDef.position.set(32,32);
+        bodyDef.position.set(10,10);
         bodyDef.type = BodyDef.BodyType.DynamicBody;
         body = world.createBody(bodyDef);
         FixtureDef fixtureDef = new FixtureDef();
@@ -37,6 +35,4 @@ public class LeftBug  extends Sprite {
         fixtureDef.shape = shape;
         body.createFixture(fixtureDef);
     }
-
-
 }

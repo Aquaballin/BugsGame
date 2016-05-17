@@ -47,7 +47,7 @@ public class BattleScreen implements Screen {
         gameCamera = new OrthographicCamera();
         viewport = new FitViewport(BugsGame.width,BugsGame.height,gameCamera);
         hud = new Hud(game.batch);
-        world = new World(new Vector2(0,10),true);
+        world = new World(new Vector2(0,0),true);
         leftBug = new LeftBug(world);
         debugRenderer = new Box2DDebugRenderer();
     }
@@ -75,6 +75,7 @@ public class BattleScreen implements Screen {
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
         game.batch.setProjectionMatrix(hud.stage.getCamera().combined);
         hud.stage.draw();
+        debugRenderer.render(world,gameCamera.combined);
     }
     /*
     User this to auto adjust screen
