@@ -16,6 +16,7 @@ import javax.xml.soap.Text;
  * Created by David on 5/16/2016.
  */
 public class LeftBug  extends Sprite {
+    public int health, armor, attack, speed;
     public World world;
     public Body body;
 
@@ -24,6 +25,7 @@ public class LeftBug  extends Sprite {
         defineLeftBug();
     }
     private void defineLeftBug() {
+        this.setOrigin(getWidth()/2, getHeight()/2);
         //texture = new Texture(Gdx.files.internal("assets/LeftBugOne2.png"));
         BodyDef bodyDef = new BodyDef();
         bodyDef.position.set(32,32);

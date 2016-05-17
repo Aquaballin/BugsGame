@@ -1,7 +1,6 @@
 package com.caseydjbugs.game.Sprites;
 
-import com.badlogic.gdx.Game;
-import com.badlogic.gdx.graphics.Texture;
+
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.physics.box2d.Body;
 import com.badlogic.gdx.physics.box2d.BodyDef;
@@ -13,6 +12,7 @@ import com.badlogic.gdx.physics.box2d.World;
  * Created by David on 5/16/2016.
  */
 public class RightBug extends Sprite {
+    public int health, armor, attack, speed;
     public World world;
     public Body body;
 
@@ -20,10 +20,12 @@ public class RightBug extends Sprite {
         this.world = world;
         defineRightBug();
 
+
     }
     private void defineRightBug() {
         BodyDef bodyDef = new BodyDef();
-        bodyDef.position.set(400-32,32);
+        bodyDef.position.set(400 - 32, 32);
+
         bodyDef.type = BodyDef.BodyType.DynamicBody;
         body = world.createBody(bodyDef);
         FixtureDef fixtureDef = new FixtureDef();
@@ -31,7 +33,7 @@ public class RightBug extends Sprite {
         shape.setRadius(5);
         fixtureDef.shape = shape;
         body.createFixture(fixtureDef);
-
-
+        this.setOrigin(getWidth()/2, getHeight()/2);
+        this.rotate(180);
     }
 }

@@ -51,7 +51,8 @@ public class BattleScreen implements Screen {
         world = new World(new Vector2(1,0),true);
         leftBug = new LeftBug(world);
         rightBug = new RightBug(world);
-        rightBug.setRotation(180);
+        rightBug.rotate(180);
+
         debugRenderer = new Box2DDebugRenderer();
     }
 
@@ -65,6 +66,7 @@ public class BattleScreen implements Screen {
 
      }
     public void update(float dt) {
+
         handleInput(dt);
         world.step(1 / 60f, 6, 2);
         gameCamera.update();
