@@ -33,6 +33,8 @@ public class BattleScreen implements Screen {
     private OrthographicCamera gameCamera;
     private Viewport viewport;
     private Hud hud;
+    SpriteBatch batch;
+
 
     //Box2d variables
     private World world;
@@ -42,27 +44,12 @@ public class BattleScreen implements Screen {
 
     public BattleScreen(BugsGame game) {
         this.game = game;
-
         gameCamera = new OrthographicCamera();
-        //different types of viewports change how you look at game
         viewport = new FitViewport(BugsGame.width,BugsGame.height,gameCamera);
         hud = new Hud(game.batch);
-
-        //param for word is gravity physics
-        world = new World(new Vector2(0,0),true);
-        debugRenderer = new Box2DDebugRenderer();
-        BodyDef bodyDef = new BodyDef();
-        PolygonShape shape = new PolygonShape();
-        FixtureDef fixtureDef = new FixtureDef();
-        Body body;
-        leftBug =   new LeftBug(world);
         world = new World(new Vector2(0,10),true);
-
-
-
-
-
-
+        leftBug = new LeftBug(world);
+        debugRenderer = new Box2DDebugRenderer();
     }
 
     @Override
@@ -78,6 +65,7 @@ public class BattleScreen implements Screen {
         handleInput(dt);
         world.step(1 / 60f, 6, 2);
         gameCamera.update();
+
 
     }
     @Override
@@ -114,5 +102,8 @@ public class BattleScreen implements Screen {
     @Override
     public void dispose() {
 
+    }
+    public World getWorld(){
+        return world;
     }
 }
