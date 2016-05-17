@@ -35,19 +35,19 @@ public class BattleScreen implements Screen {
     private Hud hud;
     SpriteBatch batch;
 
-
     //Box2d variables
     private World world;
     private Box2DDebugRenderer debugRenderer;
     LeftBug leftBug;
 
-
     public BattleScreen(BugsGame game) {
         this.game = game;
         gameCamera = new OrthographicCamera();
         viewport = new FitViewport(BugsGame.width,BugsGame.height,gameCamera);
+        gameCamera.position.set(viewport.getWorldWidth()/2,viewport.getWorldHeight()/2,0);
+
         hud = new Hud(game.batch);
-        world = new World(new Vector2(0,0),true);
+        world = new World(new Vector2(10,0),true);
         leftBug = new LeftBug(world);
         debugRenderer = new Box2DDebugRenderer();
     }

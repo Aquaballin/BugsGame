@@ -26,7 +26,7 @@ public class LeftBug  extends Sprite {
     private void defineLeftBug() {
         //texture = new Texture(Gdx.files.internal("assets/LeftBugOne2.png"));
         BodyDef bodyDef = new BodyDef();
-        bodyDef.position.set(10,10);
+        bodyDef.position.set(32,32);
         bodyDef.type = BodyDef.BodyType.DynamicBody;
         body = world.createBody(bodyDef);
         FixtureDef fixtureDef = new FixtureDef();
