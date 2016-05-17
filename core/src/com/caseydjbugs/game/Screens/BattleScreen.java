@@ -23,6 +23,7 @@ import com.badlogic.gdx.utils.viewport.Viewport;
 import com.caseydjbugs.game.BugsGame;
 import com.caseydjbugs.game.Scenes.Hud;
 import com.caseydjbugs.game.Sprites.LeftBug;
+import com.caseydjbugs.game.Sprites.RightBug;
 
 
 /**
@@ -39,16 +40,18 @@ public class BattleScreen implements Screen {
     private World world;
     private Box2DDebugRenderer debugRenderer;
     LeftBug leftBug;
+    RightBug rightBug;
 
     public BattleScreen(BugsGame game) {
         this.game = game;
         gameCamera = new OrthographicCamera();
         viewport = new FitViewport(BugsGame.width,BugsGame.height,gameCamera);
         gameCamera.position.set(viewport.getWorldWidth()/2,viewport.getWorldHeight()/2,0);
-
         hud = new Hud(game.batch);
-        world = new World(new Vector2(10,0),true);
+        world = new World(new Vector2(1,0),true);
         leftBug = new LeftBug(world);
+        rightBug = new RightBug(world);
+        rightBug.setRotation(180);
         debugRenderer = new Box2DDebugRenderer();
     }
 
