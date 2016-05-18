@@ -48,11 +48,10 @@ public class BattleScreen implements Screen {
         viewport = new FitViewport(BugsGame.width,BugsGame.height,gameCamera);
         gameCamera.position.set(viewport.getWorldWidth()/2,viewport.getWorldHeight()/2,0);
         hud = new Hud(game.batch);
-        world = new World(new Vector2(1,0),true);
+        //you dont want gravity to be what makes them walk... its not like it should be in real life
+        world = new World(new Vector2(0,0),true);
         leftBug = new LeftBug(world);
         rightBug = new RightBug(world);
-        rightBug.rotate(180);
-
         debugRenderer = new Box2DDebugRenderer();
     }
 
@@ -72,15 +71,20 @@ public class BattleScreen implements Screen {
         gameCamera.update();
 
 
+
     }
     @Override
     public void render(float delta) {
+
+
         update(delta);
         Gdx.gl.glClearColor(0, 0, 0, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
+
         game.batch.setProjectionMatrix(hud.stage.getCamera().combined);
         hud.stage.draw();
         debugRenderer.render(world,gameCamera.combined);
+
     }
     /*
     User this to auto adjust screen
