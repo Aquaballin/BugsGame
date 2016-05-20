@@ -35,7 +35,7 @@ public class BattleScreen implements Screen {
     private Viewport viewport;
     private Hud hud;
     SpriteBatch batch;
-
+    public int startPositionX,getStartPositionY = 32;
     //Box2d variables
     private World world;
     private Box2DDebugRenderer debugRenderer;
@@ -61,6 +61,9 @@ public class BattleScreen implements Screen {
     }
 
      public void handleInput(float dt) {
+         leftBug.body.setLinearVelocity(new Vector2(20f, 0));
+         rightBug.body.setLinearVelocity(new Vector2(-20f,0));
+
          //if(Gdx.input.isTouched());
 
      }
@@ -69,6 +72,7 @@ public class BattleScreen implements Screen {
         handleInput(dt);
         world.step(1 / 60f, 6, 2);
         gameCamera.update();
+
 
 
 

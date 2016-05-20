@@ -24,8 +24,7 @@ public class RightBug extends Sprite {
 
     }
     private void defineRightBug() {
-        setOriginCenter();
-        rotate(180);
+
         BodyDef bodyDef = new BodyDef();
         bodyDef.position.set(400 - 32, 32);
         bodyDef.type = BodyDef.BodyType.DynamicBody;

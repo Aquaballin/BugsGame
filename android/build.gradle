@@ -14,7 +14,15 @@ android {
 
         instrumentTest.setRoot('tests')
     }
+    buildTypes {
+        debug {
+            debuggable true
+        }
+    }
 }
+
+
+
 
 
 // called every time gradle gets executed, takes the native dependencies of

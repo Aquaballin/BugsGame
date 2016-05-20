@@ -20,11 +20,14 @@ public class LeftBug  extends Sprite {
     public World world;
     public Body body;
 
+
+
     public LeftBug(World world){
         this.world = world;
         defineLeftBug();
     }
     private void defineLeftBug() {
+
         this.setOrigin(getWidth()/2, getHeight()/2);
         //texture = new Texture(Gdx.files.internal("assets/LeftBugOne2.png"));
         BodyDef bodyDef = new BodyDef();
