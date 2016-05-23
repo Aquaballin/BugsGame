@@ -41,6 +41,7 @@ public class BattleScreen implements Screen {
     private Box2DDebugRenderer debugRenderer;
     LeftBug leftBug;
     RightBug rightBug;
+    public Texture texture = new Texture(Gdx.files.internal("Attack_00000.png"));
 
     public BattleScreen(BugsGame game) {
         this.game = game;
@@ -53,6 +54,7 @@ public class BattleScreen implements Screen {
         leftBug = new LeftBug(world);
         rightBug = new RightBug(world);
         debugRenderer = new Box2DDebugRenderer();
+
     }
 
     @Override
@@ -61,11 +63,8 @@ public class BattleScreen implements Screen {
     }
 
      public void handleInput(float dt) {
-         leftBug.body.setLinearVelocity(new Vector2(20f, 0));
-         rightBug.body.setLinearVelocity(new Vector2(-20f,0));
-
-         //if(Gdx.input.isTouched());
-
+         leftBug.body.setLinearVelocity(new Vector2(15f, 0));
+         rightBug.body.setLinearVelocity(new Vector2(-15f,0));
      }
     public void update(float dt) {
 
@@ -85,9 +84,15 @@ public class BattleScreen implements Screen {
         Gdx.gl.glClearColor(0, 0, 0, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
+
         game.batch.setProjectionMatrix(hud.stage.getCamera().combined);
         hud.stage.draw();
+
+        game.batch.draw(texture,leftBug.getX(),leftBug.getY());
+
         debugRenderer.render(world,gameCamera.combined);
+        game.batch.dispose();
+
 
     }
     /*
