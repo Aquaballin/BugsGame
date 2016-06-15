@@ -53,6 +53,7 @@ public class BattleScreen implements Screen {
         world = new World(new Vector2(0,0),true);
         leftBug = new LeftBug(world);
         rightBug = new RightBug(world);
+        //
         debugRenderer = new Box2DDebugRenderer();
 
     }
