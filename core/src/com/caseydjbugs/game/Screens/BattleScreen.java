@@ -41,7 +41,7 @@ public class BattleScreen implements Screen {
     private Box2DDebugRenderer debugRenderer;
     LeftBug leftBug;
     RightBug rightBug;
-    public Texture texture = new Texture(Gdx.files.internal("Attack_00000.png"));
+    public Texture texture;
 
     public BattleScreen(BugsGame game) {
         this.game = game;
@@ -53,8 +53,9 @@ public class BattleScreen implements Screen {
         world = new World(new Vector2(0,0),true);
         leftBug = new LeftBug(world);
         rightBug = new RightBug(world);
-        //
         debugRenderer = new Box2DDebugRenderer();
+        batch = new SpriteBatch();
+        texture = new Texture(Gdx.files.internal("Attack_00000.png"));
 
     }
 
@@ -88,11 +89,11 @@ public class BattleScreen implements Screen {
 
         game.batch.setProjectionMatrix(hud.stage.getCamera().combined);
         hud.stage.draw();
-
-        game.batch.draw(texture,leftBug.getX(),leftBug.getY());
-
         debugRenderer.render(world,gameCamera.combined);
-        game.batch.dispose();
+        batch.begin();
+        batch.draw(texture, ((int) leftBug.body.getPosition().x),((int) leftBug.body.getPosition().y));
+        batch.end();
+
 
 
     }
