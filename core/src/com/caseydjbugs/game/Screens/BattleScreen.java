@@ -46,7 +46,7 @@ public class BattleScreen implements Screen {
     RightBug rightBug;
     public Texture texture;
 
-    Sprite sprite;
+    Sprite sprite, sprite2;
 
     public BattleScreen(BugsGame game) {
         this.game = game;
@@ -61,6 +61,7 @@ public class BattleScreen implements Screen {
         game.batch = new SpriteBatch();
         texture = new Texture(Gdx.files.internal("LeftBugOne.png"));
         sprite = new Sprite(texture,0,0,57,58);
+        sprite2 = new Sprite( new Texture(Gdx.files.internal("RightBugOne.png")),0,0,100,100);
     }
 
     @Override
@@ -73,6 +74,7 @@ public class BattleScreen implements Screen {
          leftBug.body.setLinearVelocity(new Vector2(15f, 0));
          rightBug.body.setLinearVelocity(new Vector2(-15f,0));
          sprite.setPosition(leftBug.body.getPosition().x-16,leftBug.body.getPosition().y-16);
+         sprite2.setPosition(leftBug.body.getPosition().x-16,leftBug.body.getPosition().y-16);
          hud.leftMoneyCount += dt;
      }
     public void update(float dt) {
@@ -96,6 +98,7 @@ public class BattleScreen implements Screen {
         debugRenderer.render(world,gameCamera.combined);
         game.batch.begin();
         sprite.draw(game.batch);
+        sprite2.draw(game.batch);
         game.batch.end();
 
 

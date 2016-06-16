@@ -6,7 +6,9 @@ import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
+import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
+import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 import com.caseydjbugs.game.BugsGame;
@@ -47,6 +49,10 @@ public class Hud {
     Label rightHealthLabel2;
     private float timeCount;
     private Integer worldTimer;
+    TextButton leftArmorButton;
+    TextButton.TextButtonStyle textButtonStyle;
+    Skin skin;
+
 
     public Hud(SpriteBatch spriteBatch){
 
@@ -73,7 +79,7 @@ public class Hud {
         //table is size of the stage.
         table.setFillParent(true);
 
-        leftMoneyLabel = new Label(String.format("%.2f",leftMoneyCount),new Label.LabelStyle(new BitmapFont(), Color.YELLOW));
+        //leftMoneyLabel = new Label(String.format("%.2f",leftMoneyCount),new Label.LabelStyle(new BitmapFont(), Color.YELLOW));
         leftArmorLabel = new Label(String.format("%d",leftArmorLevel),new Label.LabelStyle(new BitmapFont(),Color.BLUE));
         leftAttackLabel = new Label(String.format("%d",leftAttackLevel),new Label.LabelStyle(new BitmapFont(),Color.BLUE));
         leftHealthLabel = new Label(String.format("%d",leftHealthLevel),new Label.LabelStyle(new BitmapFont(),Color.BLUE));
@@ -93,6 +99,16 @@ public class Hud {
         rightAttackLabel2 = new Label("Attack",new Label.LabelStyle(new BitmapFont(),Color.WHITE));
         rightHealthLabel2 = new Label("Health",new Label.LabelStyle(new BitmapFont(),Color.WHITE));
 
+        //testing adding buttons instead of labels
+        textButtonStyle = new TextButton.TextButtonStyle();
+        textButtonStyle.font = new BitmapFont();
+        leftArmorButton = new TextButton("0",textButtonStyle);
+
+
+
+
+
+
 
         table.row();
         table.add(leftMoneyLabel2).expandX().padTop(10);
@@ -104,7 +120,10 @@ public class Hud {
         table.add(rightArmorLabel2).expandX().padTop(10);
         table.add(rightMoneyLabel2).expandX().padTop(10);
         table.row();
-        table.add(leftMoneyLabel).expandX().padTop(10);
+        //trying to add buttons here instead of labels so that
+        //we can increment the bug's values when playing
+        table.add(leftArmorButton);
+        //table.add(leftMoneyLabel).expandX().padTop(10);
         table.add(leftArmorLabel).expandX().padTop(10);
         table.add(leftAttackLabel).expandX().padTop(10);
         table.add(leftHealthLabel).expandX().padTop(10);
@@ -121,7 +140,8 @@ public class Hud {
             worldTimer++;
             leftMoneyCount = worldTimer/10;
             rightMoneyCount = worldTimer/10;
-            leftMoneyLabel.setText(String.format("%03d", worldTimer / 10));
+            leftArmorButton.setText(String.format("%03d", worldTimer / 10));
+            //leftMoneyLabel.setText(String.format("%03d", worldTimer / 10));
             rightMoneyLabel.setText(String.format("%03d", worldTimer / 10));
             timeCount = 0;
         }
