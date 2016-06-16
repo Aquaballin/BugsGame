@@ -57,7 +57,7 @@ public class BattleScreen implements Screen {
         debugRenderer = new Box2DDebugRenderer();
         game.batch = new SpriteBatch();
         texture = new Texture(Gdx.files.internal("LeftBugOne.png"));
-        sprite = new Sprite(texture,0,0,100,100);
+        sprite = new Sprite(texture,0,0,57,58);
     }
 
     @Override
@@ -69,7 +69,7 @@ public class BattleScreen implements Screen {
 
          leftBug.body.setLinearVelocity(new Vector2(15f, 0));
          rightBug.body.setLinearVelocity(new Vector2(-15f,0));
-         sprite.setPosition(leftBug.body.getPosition().x,leftBug.body.getPosition().y);
+         sprite.setPosition(leftBug.body.getPosition().x-16,leftBug.body.getPosition().y-16);
      }
     public void update(float dt) {
 
