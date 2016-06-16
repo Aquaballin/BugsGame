@@ -25,11 +25,11 @@ public class Hud {
     private Integer rightArmorLevel;
     private Integer rightHealthLevel;
     private Integer rightAttackLevel;
-    private float leftMoneyCount;
+    public float leftMoneyCount;
     private float rightMoneyCount;
     private float moneyCap;
 
-    Label leftMoneyLabel;
+    public Label leftMoneyLabel;
     Label rightMoneyLabel;
     Label leftArmorLabel;
     Label rightArmorLabel;
