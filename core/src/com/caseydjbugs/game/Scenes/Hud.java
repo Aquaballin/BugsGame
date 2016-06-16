@@ -45,10 +45,13 @@ public class Hud {
     Label rightAttackLabel2;
     Label leftHealthLabel2;
     Label rightHealthLabel2;
+    private float timeCount;
+    private Integer worldTimer;
 
     public Hud(SpriteBatch spriteBatch){
 
 
+        worldTimer = 0;
         leftMoneyCount = 0;
         leftArmorLevel = 0;
         leftAttackLevel = 0;
@@ -111,5 +114,16 @@ public class Hud {
         table.add(rightMoneyLabel).expandX().padTop(10);
         stage.addActor(table);
 
+    }
+    public void update(float dt){
+        timeCount += dt;
+        if(timeCount <= 1000){
+            worldTimer++;
+            leftMoneyCount = worldTimer/10;
+            rightMoneyCount = worldTimer/10;
+            leftMoneyLabel.setText(String.format("%03d", worldTimer / 10));
+            rightMoneyLabel.setText(String.format("%03d", worldTimer / 10));
+            timeCount = 0;
+        }
     }
 }

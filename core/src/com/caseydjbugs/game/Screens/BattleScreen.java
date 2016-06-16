@@ -78,7 +78,7 @@ public class BattleScreen implements Screen {
     public void update(float dt) {
 
         handleInput(dt);
-        hud.leftMoneyLabel = new Label(String.format("%.2f",hud.leftMoneyCount),new Label.LabelStyle(new BitmapFont(), Color.YELLOW));
+        hud.update(dt);
         world.step(1 / 60f, 6, 2);
         gameCamera.update();
 
