@@ -20,7 +20,9 @@ import com.badlogic.gdx.physics.box2d.Fixture;
 import com.badlogic.gdx.physics.box2d.FixtureDef;
 import com.badlogic.gdx.physics.box2d.PolygonShape;
 import com.badlogic.gdx.physics.box2d.World;
+import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
+import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.StretchViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
@@ -61,7 +63,8 @@ public class BattleScreen implements Screen {
         game.batch = new SpriteBatch();
         texture = new Texture(Gdx.files.internal("LeftBugOne.png"));
         sprite = new Sprite(texture,0,0,57,58);
-        sprite2 = new Sprite( new Texture(Gdx.files.internal("RightBugOne.png")),0,0,100,100);
+        sprite2 = new Sprite( new Texture(Gdx.files.internal("RightBugOne.png")),0,0,57,58);
+
     }
 
     @Override
@@ -75,7 +78,9 @@ public class BattleScreen implements Screen {
          rightBug.body.setLinearVelocity(new Vector2(-15f,0));
          sprite.setPosition(leftBug.body.getPosition().x-16,leftBug.body.getPosition().y-16);
          sprite2.setPosition(rightBug.body.getPosition().x-16,rightBug.body.getPosition().y-16);
-         hud.leftMoneyCount += dt;
+         //hud.leftMoneyCount += dt;
+
+
      }
     public void update(float dt) {
 

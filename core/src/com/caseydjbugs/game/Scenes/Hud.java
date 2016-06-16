@@ -4,11 +4,16 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.scenes.scene2d.Actor;
+import com.badlogic.gdx.scenes.scene2d.Event;
+import com.badlogic.gdx.scenes.scene2d.EventListener;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
+import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
+import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 import com.caseydjbugs.game.BugsGame;
@@ -49,7 +54,7 @@ public class Hud {
     Label rightHealthLabel2;
     private float timeCount;
     private Integer worldTimer;
-    TextButton leftArmorButton;
+    public TextButton leftArmorButton;
     TextButton.TextButtonStyle textButtonStyle;
     Skin skin;
     Color white = Color.WHITE;
@@ -80,10 +85,10 @@ public class Hud {
         //table is size of the stage.
         table.setFillParent(true);
 
-        //leftMoneyLabel = new Label(String.format("%.2f",leftMoneyCount),new Label.LabelStyle(new BitmapFont(), Color.YELLOW));
-        leftArmorLabel = new Label(String.format("%d",leftArmorLevel),new Label.LabelStyle(new BitmapFont(),Color.BLUE));
-        leftAttackLabel = new Label(String.format("%d",leftAttackLevel),new Label.LabelStyle(new BitmapFont(),Color.BLUE));
-        leftHealthLabel = new Label(String.format("%d",leftHealthLevel),new Label.LabelStyle(new BitmapFont(),Color.BLUE));
+        leftMoneyLabel = new Label(String.format("%.2f",leftMoneyCount),new Label.LabelStyle(new BitmapFont(), Color.YELLOW));
+        leftArmorLabel = new Label(String.format("%d",leftArmorLevel),new Label.LabelStyle(new BitmapFont(),Color.CHARTREUSE));
+        leftAttackLabel = new Label(String.format("%d",leftAttackLevel),new Label.LabelStyle(new BitmapFont(),Color.CHARTREUSE));
+        leftHealthLabel = new Label(String.format("%d",leftHealthLevel),new Label.LabelStyle(new BitmapFont(),Color.CHARTREUSE));
 
         rightMoneyLabel = new Label(String.format("%.2f",rightMoneyCount),new Label.LabelStyle(new BitmapFont(), Color.YELLOW));
         rightArmorLabel = new Label(String.format("%d",rightArmorLevel),new Label.LabelStyle(new BitmapFont(),Color.RED));
@@ -103,13 +108,20 @@ public class Hud {
         //testing adding buttons instead of labels
         textButtonStyle = new TextButton.TextButtonStyle();
         textButtonStyle.font = new BitmapFont();
-        textButtonStyle.checkedFontColor = Color.WHITE;
+        textButtonStyle.fontColor = Color.CHARTREUSE;
         leftArmorButton = new TextButton("0",textButtonStyle);
 
+        leftArmorButton.addListener(new EventListener() {
+            @Override
+            public boolean handle(Event event) {
 
-
-
-
+                if (leftMoneyCount >= 100) {
+                    leftMoneyCount -= 100;
+                    leftArmorLevel += 100;
+                }
+                return true;
+            }
+        });
 
 
 
@@ -126,9 +138,8 @@ public class Hud {
         table.row();
         //trying to add buttons here instead of labels so that
         //we can increment the bug's values when playing
-        table.add(leftArmorButton);
-        //table.add(leftMoneyLabel).expandX().padTop(10);
-        table.add(leftArmorLabel).expandX().padTop(10);
+        table.add(leftMoneyLabel).expandX().padTop(10);
+        table.add(leftArmorButton); //table.add(leftArmorLabel).expandX().padTop(10);
         table.add(leftAttackLabel).expandX().padTop(10);
         table.add(leftHealthLabel).expandX().padTop(10);
         table.add(rightHealthLabel).expandX().padTop(10);
@@ -137,17 +148,20 @@ public class Hud {
         table.add(rightMoneyLabel).expandX().padTop(10);
         stage.addActor(table);
 
+
     }
     public void update(float dt){
+
         timeCount += dt;
         if(timeCount <= 1000){
             worldTimer++;
-            leftMoneyCount = worldTimer/10;
-            rightMoneyCount = worldTimer/10;
-            leftArmorButton.setText(String.format("%03d", worldTimer / 10));
-            //leftMoneyLabel.setText(String.format("%03d", worldTimer / 10));
-            rightMoneyLabel.setText(String.format("%03d", worldTimer / 10));
+            leftMoneyCount = worldTimer/15;
+            rightMoneyCount = worldTimer/15;
+            //leftArmorButton.setText(String.format("%03d", worldTimer / 10));
+            leftMoneyLabel.setText(String.format("%03d", (int)leftMoneyCount));
+            rightMoneyLabel.setText(String.format("%03d", worldTimer / 15));
             timeCount = 0;
         }
+
     }
 }
