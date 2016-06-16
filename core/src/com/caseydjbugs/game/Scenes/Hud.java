@@ -52,6 +52,7 @@ public class Hud {
     TextButton leftArmorButton;
     TextButton.TextButtonStyle textButtonStyle;
     Skin skin;
+    Color white = Color.WHITE;
 
 
     public Hud(SpriteBatch spriteBatch){
@@ -102,7 +103,10 @@ public class Hud {
         //testing adding buttons instead of labels
         textButtonStyle = new TextButton.TextButtonStyle();
         textButtonStyle.font = new BitmapFont();
+        textButtonStyle.checkedFontColor = Color.WHITE;
         leftArmorButton = new TextButton("0",textButtonStyle);
+
+
 
 
 

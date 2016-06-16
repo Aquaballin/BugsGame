@@ -74,7 +74,7 @@ public class BattleScreen implements Screen {
          leftBug.body.setLinearVelocity(new Vector2(15f, 0));
          rightBug.body.setLinearVelocity(new Vector2(-15f,0));
          sprite.setPosition(leftBug.body.getPosition().x-16,leftBug.body.getPosition().y-16);
-         sprite2.setPosition(leftBug.body.getPosition().x-16,leftBug.body.getPosition().y-16);
+         sprite2.setPosition(rightBug.body.getPosition().x-16,rightBug.body.getPosition().y-16);
          hud.leftMoneyCount += dt;
      }
     public void update(float dt) {
