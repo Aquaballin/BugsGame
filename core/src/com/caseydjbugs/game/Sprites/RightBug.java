@@ -30,7 +30,7 @@ public class RightBug extends Sprite {
         bodyDef.type = BodyDef.BodyType.DynamicBody;
 
         body = world.createBody(bodyDef);
-        body.applyForce(new Vector2(-.0f,0),body.getWorldCenter(),true);
+
         FixtureDef fixtureDef = new FixtureDef();
         CircleShape shape = new CircleShape();
         shape.setRadius(5);

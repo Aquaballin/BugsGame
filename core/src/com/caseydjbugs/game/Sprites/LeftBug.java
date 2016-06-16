@@ -39,5 +39,6 @@ public class LeftBug  extends Sprite {
         shape.setRadius(5);
         fixtureDef.shape = shape;
         body.createFixture(fixtureDef);
+
     }
 }

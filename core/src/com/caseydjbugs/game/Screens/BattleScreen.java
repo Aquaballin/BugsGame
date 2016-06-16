@@ -7,6 +7,7 @@ import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 
+import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.maps.MapObject;
 import com.badlogic.gdx.math.Vector2;
@@ -35,7 +36,6 @@ public class BattleScreen implements Screen {
     private Viewport viewport;
     private Hud hud;
     SpriteBatch batch;
-    public int startPositionX,getStartPositionY = 32;
     //Box2d variables
     private World world;
     private Box2DDebugRenderer debugRenderer;
@@ -43,20 +43,21 @@ public class BattleScreen implements Screen {
     RightBug rightBug;
     public Texture texture;
 
+    Sprite sprite;
+
     public BattleScreen(BugsGame game) {
         this.game = game;
         gameCamera = new OrthographicCamera();
         viewport = new FitViewport(BugsGame.width,BugsGame.height,gameCamera);
         gameCamera.position.set(viewport.getWorldWidth()/2,viewport.getWorldHeight()/2,0);
         hud = new Hud(game.batch);
-        //you dont want gravity to be what makes them walk... its not like it should be in real life
         world = new World(new Vector2(0,0),true);
         leftBug = new LeftBug(world);
         rightBug = new RightBug(world);
         debugRenderer = new Box2DDebugRenderer();
-        batch = new SpriteBatch();
-        texture = new Texture(Gdx.files.internal("Attack_00000.png"));
-
+        game.batch = new SpriteBatch();
+        texture = new Texture(Gdx.files.internal("LeftBugOne.png"));
+        sprite = new Sprite(texture,0,0,100,100);
     }
 
     @Override
@@ -65,8 +66,10 @@ public class BattleScreen implements Screen {
     }
 
      public void handleInput(float dt) {
+
          leftBug.body.setLinearVelocity(new Vector2(15f, 0));
          rightBug.body.setLinearVelocity(new Vector2(-15f,0));
+         sprite.setPosition(leftBug.body.getPosition().x,leftBug.body.getPosition().y);
      }
     public void update(float dt) {
 
@@ -80,22 +83,23 @@ public class BattleScreen implements Screen {
     }
     @Override
     public void render(float delta) {
-
-
         update(delta);
         Gdx.gl.glClearColor(0, 0, 0, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
-
-
         game.batch.setProjectionMatrix(hud.stage.getCamera().combined);
         hud.stage.draw();
         debugRenderer.render(world,gameCamera.combined);
-        batch.begin();
-        batch.draw(texture, ((int) leftBug.body.getPosition().x),((int) leftBug.body.getPosition().y));
-        batch.end();
+        game.batch.begin();
+        sprite.draw(game.batch);
+        game.batch.end();
 
 
+        /**
+        game.batch.begin();
+        game.batch.draw(texture,leftBug.body.getPosition().x,rightBug.body.getPosition().y);
 
+        game.batch.end();
+         **/
     }
     /*
     User this to auto adjust screen
